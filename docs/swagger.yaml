@@ -1,0 +1,144 @@
+basePath: /
+definitions:
+  model.Invoice:
+    properties:
+      creation_date:
+        type: string
+      id:
+        type: integer
+      total:
+        type: number
+    type: object
+  model.Medicine:
+    properties:
+      id:
+        type: integer
+      location:
+        type: string
+      name:
+        type: string
+      price:
+        type: number
+    type: object
+  model.Promotion:
+    properties:
+      description:
+        type: string
+      end_date:
+        type: string
+      id:
+        type: integer
+      percentage:
+        type: number
+      start_date:
+        type: string
+    type: object
+host: localhost:5000
+info:
+  contact:
+    email: fiber@swagger.io
+    name: API Support
+  description: Permite gestionar la facturación de Aveonline.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: API Facturacion
+  version: 1.0.0
+paths:
+  /api/invoices:
+    get:
+      consumes:
+      - '*/*'
+      description: get the list of invoices.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.Invoice'
+            type: array
+      summary: Show the list of invoices.
+      tags:
+      - invoices
+    post:
+      consumes:
+      - '*/*'
+      description: create a new invoice.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Invoice'
+      summary: create a new invoice.
+      tags:
+      - invoices
+  /api/medicines:
+    get:
+      consumes:
+      - '*/*'
+      description: get the list of medicines.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.Medicine'
+            type: array
+      summary: Show the list of medicines.
+      tags:
+      - medicines
+    post:
+      consumes:
+      - '*/*'
+      description: create a new medicine.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Medicine'
+      summary: create a new medicine.
+      tags:
+      - medicines
+  /api/promotions:
+    get:
+      consumes:
+      - '*/*'
+      description: get the list of promotions.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.Promotion'
+            type: array
+      summary: Show the list of promotions.
+      tags:
+      - promotions
+    post:
+      consumes:
+      - '*/*'
+      description: create a new promotion.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Promotion'
+      summary: create a new promotion.
+      tags:
+      - promotions
+schemes:
+- http
+swagger: "2.0"
